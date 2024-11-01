@@ -19,6 +19,7 @@ import {
 } from "@icons-pack/react-simple-icons";
 import { FloatingDockItem } from "@/components/ui/floating-dock";
 import Link from "next/link";
+import * as motion from "framer-motion/client";
 
 const items: Omit<FloatingDockItem, "title">[] = [
   {
@@ -67,7 +68,12 @@ export default function Home() {
 
   return (
     <div className="flex h-dvh">
-      <div className="w-64 shadow-[0_0_10px_rgb(0,0,0,0.2)] rounded-r-2xl hidden lg:flex lg:flex-col lg:gap-2 lg:items-center">
+      <motion.div
+        initial={{ x: -250 }}
+        animate={{ x: 0 }}
+        transition={{ duration: 0.5 }}
+        className="w-64 shadow-[0_0_10px_rgb(0,0,0,0.2)] rounded-r-2xl hidden lg:flex lg:flex-col lg:gap-2 lg:items-center"
+      >
         <Profile />
         <SideNav
           activeSection={activeSection}
@@ -77,7 +83,7 @@ export default function Home() {
         />
         <div className="flex-1" />
         <ExternalLinks />
-      </div>
+      </motion.div>
       <ScrollArea
         className="w-full mx-4 lg:mx-0"
         onScrollCapture={handleScroll}

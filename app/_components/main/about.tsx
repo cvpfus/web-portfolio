@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { CircleUserRound } from "lucide-react";
+import * as motion from "framer-motion/client";
 
 export default function About({
   className,
@@ -11,13 +12,17 @@ export default function About({
         <CircleUserRound className="size-5" />
         <span>About</span>
       </h2>
-      <span>
+      <motion.span
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         I have a strong interest in software engineering. I am dedicated to
         pushing the boundaries of technology and driving innovation to create
         intelligent solutions. With a deep commitment to continuous learning, I
         am eager to leverage my skills and expertise to contribute to
         groundbreaking projects in the dynamic world of technology.
-      </span>
+      </motion.span>
     </div>
   );
 }

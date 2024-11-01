@@ -5,6 +5,7 @@ import ProjectCard, { ProjectDetail } from "@/components/ui/project-card";
 import React from "react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { ScrollText } from "lucide-react";
+import { motion } from "framer-motion";
 
 const projects: ProjectDetail[] = [
   {
@@ -89,24 +90,30 @@ export default function Projects({
         <ScrollText className="size-5" />
         <span>Projects</span>
       </h2>
-      <ResponsiveMasonry
-        columnsCountBreakPoints={{ 350: 1, 750: 2 }}
-        className="mt-4"
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
       >
-        <Masonry gutter="16px">
-          {projects.map((project) => (
-            <ProjectCard
-              key={project.title}
-              title={project.title}
-              description={project.description}
-              imgSrc={project.imgSrc}
-              githubUrl={project.githubUrl}
-              liveUrl={project.liveUrl}
-              techStack={project.techStack}
-            />
-          ))}
-        </Masonry>
-      </ResponsiveMasonry>
+        <ResponsiveMasonry
+          columnsCountBreakPoints={{ 350: 1, 750: 2 }}
+          className="mt-4"
+        >
+          <Masonry gutter="16px">
+            {projects.map((project) => (
+              <ProjectCard
+                key={project.title}
+                title={project.title}
+                description={project.description}
+                imgSrc={project.imgSrc}
+                githubUrl={project.githubUrl}
+                liveUrl={project.liveUrl}
+                techStack={project.techStack}
+              />
+            ))}
+          </Masonry>
+        </ResponsiveMasonry>
+      </motion.div>
     </div>
   );
 }
