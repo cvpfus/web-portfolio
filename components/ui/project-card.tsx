@@ -21,7 +21,6 @@ interface ProjectProps
 
 export default function ProjectCard({
   className,
-  children,
   title,
   description,
   imgSrc,

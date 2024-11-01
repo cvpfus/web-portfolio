@@ -1,11 +1,7 @@
-import { Lato, Work_Sans } from "next/font/google";
+import { Work_Sans } from "next/font/google";
 import type { Metadata } from "next";
 import "./globals.css";
 
-const lato = Lato({
-  weight: ["100", "300", "400", "700", "900"],
-  subsets: ["latin"],
-});
 
 const workSans = Work_Sans({
   subsets: ["latin"],
