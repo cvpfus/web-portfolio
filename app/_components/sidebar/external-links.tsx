@@ -1,5 +1,9 @@
 import { FloatingDock, FloatingDockItem } from "@/components/ui/floating-dock";
-import {SiGithub, SiInstagram, SiLinkedin} from "@icons-pack/react-simple-icons";
+import {
+  SiGithub,
+  SiInstagram,
+  SiLinkedin,
+} from "@icons-pack/react-simple-icons";
 
 const items: FloatingDockItem[] = [
   {
