@@ -1,101 +1,125 @@
+"use client";
+
+import Profile from "@/app/_components/sidebar/profile";
+import SideNav from "@/app/_components/sidebar/side-nav";
+import ExternalLinks from "@/app/_components/sidebar/external-links";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import About from "@/app/_components/main/about";
+import Career from "@/app/_components/main/career";
+import Achievements from "@/app/_components/main/achievements";
+import Projects from "@/app/_components/main/projects";
+import { Separator } from "@/components/ui/separator";
+import React, { useRef, useState } from "react";
+import { sections, SectionsPosY } from "@/lib/definitions";
 import Image from "next/image";
+import {
+  SiGithub,
+  SiInstagram,
+  SiLinkedin,
+} from "@icons-pack/react-simple-icons";
+import { FloatingDockItem } from "@/components/ui/floating-dock";
+import Link from "next/link";
+
+const items: Omit<FloatingDockItem, "title">[] = [
+  {
+    icon: <SiGithub />,
+    href: "https://github.com/cvpfus",
+  },
+  {
+    icon: <SiLinkedin />,
+    href: "https://linkedin.com/in/yusuf-pradityarahman-4b2312ab",
+  },
+  {
+    icon: <SiInstagram />,
+    href: "https://instagram.com/yusufpraditya_",
+  },
+];
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [activeSection, setActiveSection] = useState("About");
+  const [isClicked, setIsClicked] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const scrollAreaRef = useRef<HTMLDivElement>(null);
+
+  const handleScroll = () => {
+    if (isClicked) return;
+
+    const elementsPosY: SectionsPosY = {
+      About: -1,
+      Career: -1,
+      Achievements: -1,
+      Projects: -1,
+    };
+
+    sections.forEach((section) => {
+      const element = document.getElementById(section);
+      if (element) {
+        elementsPosY[section] = element.getBoundingClientRect().top;
+      }
+    });
+
+    const sorted = Object.entries(elementsPosY)
+      .sort(([, a], [, b]) => b - a)
+      .filter(([, val]) => val <= 0);
+
+    if (sorted.length > 0) setActiveSection(sorted[0][0]);
+  };
+
+  return (
+    <div className="flex h-dvh">
+      <div className="w-64 shadow-[0_0_10px_rgb(0,0,0,0.2)] rounded-r-2xl hidden lg:flex lg:flex-col lg:gap-2 lg:items-center">
+        <Profile />
+        <SideNav
+          activeSection={activeSection}
+          setActiveSection={setActiveSection}
+          setIsClicked={setIsClicked}
+          scrollAreaRef={scrollAreaRef}
+        />
+        <div className="flex-1" />
+        <ExternalLinks />
+      </div>
+      <ScrollArea
+        className="w-full mx-4 lg:mx-0"
+        onScrollCapture={handleScroll}
+        ref={scrollAreaRef}
+      >
+        <div className="w-full h-full flex justify-center">
+          <div className="w-full max-w-[768px] absolute top-0 py-4 flex items-center justify-between gap-2 bg-white z-[100] lg:hidden">
+            <div className="flex items-center gap-2">
+              <Image
+                alt="Profile Picture"
+                src="/img/profile.jpg"
+                width={40}
+                height={40}
+                className="rounded-full size-10 border-2 border-white shadow-[0_0_5px_rgb(0,0,0,0.25)]"
+              />
+              <div className="text-xl">Yusuf Pradityarahman</div>
+            </div>
+
+            <div className="flex gap-2 justify-self-end">
+              {items.map((item, index) => (
+                <Link
+                  key={index}
+                  href={item.href}
+                  target="_blank"
+                  className="hover:text-amber-400"
+                >
+                  {item.icon}
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div className="w-[768px] flex flex-col gap-8">
+            <About className="mt-24" />
+            <Separator />
+            <Career />
+            <Separator />
+            <Achievements />
+            <Separator />
+            <Projects className="mb-24" />
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </ScrollArea>
     </div>
   );
 }
