@@ -125,9 +125,9 @@ interface AnimatedTimelineProps {
 
 const defaultStyles: TimelineStyles = {
   lineColor: "#d1d5db",
-  activeLineColor: "#000000",
+  activeLineColor: "#fbbf24",
   dotColor: "#d1d5db",
-  activeDotColor: "#000000",
+  activeDotColor: "#fbbf24",
   dotSize: "0.75rem",
   titleColor: "inherit",
   descriptionColor: "inherit",

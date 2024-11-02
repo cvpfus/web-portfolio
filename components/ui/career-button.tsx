@@ -23,7 +23,7 @@ export default function CareerButton({
       <Button
         containerClassName="w-full h-full"
         borderRadius="0.75rem"
-        className="bg-white dark:bg-slate-900 text-black dark:text-white border-neutral-200 dark:border-slate-800 flex justify-start gap-2 p-4"
+        className="bg-white dark:bg-zinc-900 text-black dark:text-white border-neutral-200 dark:border-zinc-700 flex justify-start gap-2 p-4"
       >
         <Skeleton className="size-[50px]" />
         <Separator orientation="vertical" />
@@ -43,7 +43,7 @@ export default function CareerButton({
       <Button
         containerClassName="w-full h-full"
         borderRadius="0.75rem"
-        className="bg-white dark:bg-slate-900 text-black dark:text-white border-neutral-200 dark:border-slate-800 flex justify-start gap-2 p-4"
+        className="bg-white dark:bg-zinc-900 text-black dark:text-white border-neutral-200 dark:border-zinc-700 flex justify-start gap-2 p-4"
       >
         <Image alt={location} src={imgSrc} width="50" height="50" />
         <Separator orientation="vertical" />

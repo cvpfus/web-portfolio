@@ -20,6 +20,11 @@ import {
 import { FloatingDockItem } from "@/components/ui/floating-dock";
 import Link from "next/link";
 import * as motion from "framer-motion/client";
+import { useTheme } from "next-themes";
+import { Button } from "@/components/ui/button";
+import { Moon, Sun } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { ToggleThemeButton } from "@/components/ui/toggle-theme-button";
 
 const items: Omit<FloatingDockItem, "title">[] = [
   {
@@ -72,7 +77,7 @@ export default function Home() {
         initial={{ x: -250 }}
         animate={{ x: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-64 shadow-[0_0_10px_rgb(0,0,0,0.2)] rounded-r-2xl hidden lg:flex lg:flex-col lg:gap-2 lg:items-center"
+        className="w-64 shadow-[0_0_10px_rgb(0,0,0,0.2)] dark:shadow-[0_0_10px_rgb(255,255,255,0.2)] rounded-r-2xl hidden lg:flex lg:flex-col lg:gap-2 lg:items-center"
       >
         <Profile />
         <SideNav
@@ -90,7 +95,7 @@ export default function Home() {
         ref={scrollAreaRef}
       >
         <div className="w-full h-full flex justify-center">
-          <div className="w-full max-w-[768px] absolute top-0 py-4 flex items-center justify-between gap-2 bg-white z-[100] lg:hidden">
+          <div className="w-full max-w-[768px] absolute top-0 py-4 flex items-center justify-between gap-2 bg-white dark:bg-black z-[100] lg:hidden">
             <div className="flex items-center gap-2">
               <Image
                 alt="Profile Picture"
@@ -99,10 +104,10 @@ export default function Home() {
                 height={40}
                 className="rounded-full size-10 border-2 border-white shadow-[0_0_5px_rgb(0,0,0,0.25)]"
               />
-              <div className="text-xl">Yusuf Pradityarahman</div>
+              <div className="text-base lg:text-xl">Yusuf Pradityarahman</div>
             </div>
 
-            <div className="flex gap-2 justify-self-end">
+            <div className="flex gap-2 justify-self-end items-center">
               {items.map((item, index) => (
                 <Link
                   key={index}
@@ -113,6 +118,7 @@ export default function Home() {
                   {item.icon}
                 </Link>
               ))}
+              <ToggleThemeButton className="ml-2" />
             </div>
           </div>
           <div className="w-[768px] flex flex-col gap-8">
@@ -126,6 +132,7 @@ export default function Home() {
           </div>
         </div>
       </ScrollArea>
+      <ToggleThemeButton className="absolute top-4 right-4 invisible lg:visible" />
     </div>
   );
 }

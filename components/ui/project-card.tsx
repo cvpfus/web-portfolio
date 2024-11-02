@@ -1,10 +1,10 @@
 import { cn } from "@/lib/utils";
 import React from "react";
 import Image from "next/image";
-import Github from "@/components/icons/github";
 import { Link as LinkIcon } from "lucide-react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
+import { SiGithub } from "@icons-pack/react-simple-icons";
 
 export interface ProjectDetail {
   title: string;
@@ -32,8 +32,8 @@ export default function ProjectCard({
   return (
     <div
       className={cn(
-        "rounded-lg border group hover:shadow-lg hover:border-white transition-shadow duration-200 p-4 flex flex-col gap-2",
-        className,
+        "rounded-lg border group hover:shadow-lg dark:border-zinc-700 dark:shadow-zinc-700 hover:border-white dark:hover:border-black transition-shadow duration-200 p-4 flex flex-col gap-2",
+        className
       )}
       {...props}
     >
@@ -49,7 +49,7 @@ export default function ProjectCard({
         <div className="flex gap-2.5 mb-2">
           {githubUrl && (
             <Link href={githubUrl} target="_blank">
-              <Github className="hover:fill-amber-400" />
+              <SiGithub className="hover:fill-amber-400" />
             </Link>
           )}
           {liveUrl && (
