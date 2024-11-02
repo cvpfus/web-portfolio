@@ -20,10 +20,6 @@ import {
 import { FloatingDockItem } from "@/components/ui/floating-dock";
 import Link from "next/link";
 import * as motion from "framer-motion/client";
-import { useTheme } from "next-themes";
-import { Button } from "@/components/ui/button";
-import { Moon, Sun } from "lucide-react";
-import { cn } from "@/lib/utils";
 import { ToggleThemeButton } from "@/components/ui/toggle-theme-button";
 
 const items: Omit<FloatingDockItem, "title">[] = [
