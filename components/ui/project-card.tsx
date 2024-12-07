@@ -32,7 +32,7 @@ export default function ProjectCard({
   return (
     <div
       className={cn(
-        "rounded-lg border group hover:shadow-lg dark:border-zinc-700 dark:shadow-zinc-700 hover:border-white dark:hover:border-black transition-shadow duration-200 p-4 flex flex-col gap-2",
+        "rounded-lg border group hover:shadow-lg dark:bg-zinc-900 dark:border-zinc-700 dark:shadow-zinc-700 hover:border-white dark:hover:border-zinc-900 transition-shadow duration-200 p-4 flex flex-col gap-2",
         className
       )}
       {...props}
