@@ -9,12 +9,26 @@ import { motion } from "framer-motion";
 
 const projects: ProjectDetail[] = [
   {
+    title: "Personal Website",
+    description:
+      "A personal website showcasing my career, achievements, projects and skills.",
+    imgSrc: "https://img.cvpfus.xyz/portfolio.jpg",
+    githubUrl: "https://github.com/cvpfus/web-portfolio",
+    techStack: [
+      "Next.js",
+      "TypeScript",
+      "shadcn/ui",
+      "TailwindCSS",
+      "Aceternity UI",
+      "Animata",
+    ],
+  },
+  {
     title: "CryptoStreamr",
     description:
       "CryptoStreamr is revolutionizing live streaming by enabling creators to receive cryptocurrency tips in real-time.",
     imgSrc: "https://img.cvpfus.xyz/cryptostreamr.png",
     githubUrl: "https://github.com/cvpfus/crypto-streamr",
-    liveUrl: "https://cryptostreamr.cvpfus.xyz",
     techStack: [
       "Next.js",
       "TypeScript",
@@ -77,6 +91,13 @@ const projects: ProjectDetail[] = [
       "shadcn/ui",
       "TailwindCSS",
     ],
+  },
+  {
+    title: "MarvelSnapCsharp",
+    description: "A console card game written in C#. The game is inspired by Marvel Snap.",
+    imgSrc: "https://img.cvpfus.xyz/marvel-snap.jpg",
+    githubUrl: "https://github.com/cvpfus/MarvelSnapCsharp",
+    techStack: ["C#", "Spectre.Console"],
   },
 ];
 
