@@ -1,12 +1,12 @@
-import { Work_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import type { Metadata } from "next";
 import { GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
-const workSans = Work_Sans({
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-});
+})
 
 export const metadata: Metadata = {
   title: "Yusuf Pradityarahman",
@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <GoogleTagManager gtmId="GTM-PF3S9F8Z" />
       <body
-        className={`${workSans.className} antialiased selection:text-white selection:bg-black dark:selection:text-black dark:selection:bg-white dark:bg-black`}
+        className={`${plusJakartaSans.className} antialiased selection:text-white selection:bg-black dark:selection:text-black dark:selection:bg-white dark:bg-black`}
       >
         <ThemeProvider
           attribute="class"
