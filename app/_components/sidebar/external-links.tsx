@@ -16,11 +16,6 @@ const items: FloatingDockItem[] = [
     icon: <SiLinkedin />,
     href: "https://linkedin.com/in/yusuf-pradityarahman-4b2312ab",
   },
-  {
-    title: "Instagram",
-    icon: <SiInstagram />,
-    href: "https://instagram.com/yusufpraditya_",
-  },
 ];
 
 export default function ExternalLinks() {
