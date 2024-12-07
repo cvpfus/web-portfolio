@@ -1,6 +1,7 @@
 import CareerButton from "@/components/ui/career-button";
-import { BriefcaseBusiness } from "lucide-react";
+import { ArrowUpRight, BriefcaseBusiness } from "lucide-react";
 import * as motion from "framer-motion/client";
+import Link from "next/link";
 
 export default function Career() {
   return (
@@ -8,6 +9,17 @@ export default function Career() {
       <h2 className="font-bold flex items-center gap-2">
         <BriefcaseBusiness className="size-5" />
         <span>Career</span>
+        <span className="flex-1" />
+        <div className="flex items-center gap-1 group">
+          <Link
+            href="https://storage.cvpfus.xyz/Resume.pdf"
+            className="text-base font-medium"
+            target="_blank"
+          >
+            View Resume
+          </Link>
+          <ArrowUpRight className="size-5 transition-all group-hover:translate-x-1 group-hover:-translate-y-1" />
+        </div>
       </h2>
       <motion.div
         initial={{ opacity: 0, y: 50 }}
