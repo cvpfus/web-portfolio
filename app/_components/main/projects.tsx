@@ -24,6 +24,22 @@ const projects: ProjectDetail[] = [
     ],
   },
   {
+    title: "Simple Marketplace",
+    description: "A simple marketplace built with React. It uses the Airtable database for storing Products, Orders, and Users.",
+    imgSrc: "https://img.cvpfus.xyz/simple-marketplace.jpg",
+    githubUrl: "https://github.com/cvpfus/marketplace",
+    liveUrl: "https://marketplace.cvpfus.xyz",
+    techStack: [
+      "React",
+      "JavaScript",
+      "Node.js",
+      "Express.js",
+      "Airtable",
+      "shadcn/ui",
+      "TailwindCSS",
+    ],
+  },
+  {
     title: "CryptoStreamr",
     description:
       "CryptoStreamr is revolutionizing live streaming by enabling creators to receive cryptocurrency tips in real-time.",
