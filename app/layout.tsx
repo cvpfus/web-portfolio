@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import Script from "next/script";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -21,6 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <GoogleTagManager gtmId="GTM-PF3S9F8Z" />
+      <Script src="https://scripts.simpleanalyticscdn.com/latest.js"  />
       <body
         className={`${plusJakartaSans.className} antialiased selection:text-white selection:bg-black dark:selection:text-black dark:selection:bg-white dark:bg-black`}
       >
