@@ -14,7 +14,6 @@ import { sections, SectionsPosY } from "@/lib/definitions";
 import Image from "next/image";
 import {
   SiGithub,
-  SiInstagram,
   SiLinkedin,
 } from "@icons-pack/react-simple-icons";
 import { FloatingDockItem } from "@/components/ui/floating-dock";
@@ -30,10 +29,6 @@ const items: Omit<FloatingDockItem, "title">[] = [
   {
     icon: <SiLinkedin />,
     href: "https://linkedin.com/in/yusuf-pradityarahman-4b2312ab",
-  },
-  {
-    icon: <SiInstagram />,
-    href: "https://instagram.com/yusufpraditya_",
   },
 ];
 
