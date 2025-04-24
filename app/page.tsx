@@ -95,7 +95,7 @@ export default function Home() {
                 height={40}
                 className="rounded-full size-10 border-2 border-white shadow-[0_0_5px_rgb(0,0,0,0.25)]"
               />
-              <div className="text-base lg:text-xl">Yusuf Pradityarahman</div>
+              <div className="text-base lg:text-xl">Yusuf Praditya Rahman</div>
             </div>
 
             <div className="flex gap-2 justify-self-end items-center">
