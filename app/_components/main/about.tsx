@@ -17,11 +17,9 @@ export default function About({
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        I have a strong interest in software engineering. I am dedicated to
-        pushing the boundaries of technology and driving innovation to create
-        intelligent solutions. With a deep commitment to continuous learning, I
-        am eager to leverage my skills and expertise to contribute to
-        groundbreaking projects in the dynamic world of technology.
+        I have a strong interest in software engineering. I love exploring
+        technology and finding new ways to solve problems. I am eager to keep
+        learning and use my skills to work on innovative projects.
       </motion.span>
     </div>
   );
