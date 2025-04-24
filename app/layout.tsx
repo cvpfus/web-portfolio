@@ -10,8 +10,8 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 })
 
 export const metadata: Metadata = {
-  title: "Yusuf Pradityarahman",
-  description: "Web Portfolio of Yusuf Pradityarahman",
+  title: "Yusuf Praditya Rahman",
+  description: "Web Portfolio of Yusuf Praditya Rahman",
 };
 
 export default function RootLayout({

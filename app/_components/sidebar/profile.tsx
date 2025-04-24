@@ -10,7 +10,7 @@ export default function Profile() {
         height={80}
         className="rounded-full size-20 border-2 border-white shadow-[0_0_5px_rgb(0,0,0,0.25)] mb-2"
       />
-      <div className="font-medium text-lg">Yusuf Pradityarahman</div>
+      <div className="font-medium text-lg">Yusuf Praditya Rahman</div>
       <div className="text-sm">Software Engineer</div>
     </div>
   );
