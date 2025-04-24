@@ -28,7 +28,7 @@ const items: Omit<FloatingDockItem, "title">[] = [
   },
   {
     icon: <SiLinkedin />,
-    href: "https://linkedin.com/in/yusuf-pradityarahman-4b2312ab",
+    href: "https://linkedin.com/in/yusuf-praditya-rahman",
   },
 ];
 
