@@ -22,7 +22,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <GoogleTagManager gtmId="GTM-PF3S9F8Z" />
-      <Script src="https://scripts.simpleanalyticscdn.com/latest.js"  />
+      <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
+      <Script defer src="https://umami.b8n.xyz/script.js" data-website-id="d22cd6f0-b303-468d-97f9-e43371710a7b"></Script>
       <body
         className={`${plusJakartaSans.className} antialiased selection:text-white selection:bg-black dark:selection:text-black dark:selection:bg-white dark:bg-black`}
       >
